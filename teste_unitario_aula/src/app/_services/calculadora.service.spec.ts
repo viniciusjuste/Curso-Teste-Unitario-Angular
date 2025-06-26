@@ -12,7 +12,13 @@ describe('CalculadoraService', () => {
     service = TestBed.inject(CalculadoraService);
   });
 
-  it('should be created', () => {
+  it('Deve fazer a operação corretamente entre dois números', () => {
     expect(service).toBeTruthy();
+
+    expect(service.calcular(2, 3, 'soma')).toBe(5);
+    expect(service.calcular(5, 3, 'subtracao')).toBe(2);
+    expect(service.calcular(2, 3, 'multiplicacao')).toBe(6);
+    expect(service.calcular(6, 3, 'divisao')).toBe(2);
+    expect(service.calcular(6, 0, 'divisao')).toBeNaN();
   });
 });
